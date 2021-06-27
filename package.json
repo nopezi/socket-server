@@ -1,0 +1,26 @@
+{
+  "name": "socket.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js --inspect",
+    "gas": "nodemon server2.js --inspect",
+    "v2": "nodemon v2.js --inspect"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eiows": "^3.6.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "socket.io": "^2.4.1",
+    "winston": "^3.3.3"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.3",
+    "utf-8-validate": "^5.0.5"
+  }
+}
