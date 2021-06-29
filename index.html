@@ -36,10 +36,10 @@
 								<div class="row">
 									<div class="col-md-10">
 										<!--<textarea class="form-control" id="pesan"></textarea>-->
-										<input type="text" name="" class="form-control">
+										<input type="text" name="" id="pesan" class="form-control">
 									</div>
 									<div class="col-md-2">
-										<button class="btn btn-md btn-info" type="button">Send</button>
+										<button class="btn btn-md btn-info" onclick="kirimPesan()" type="button">Send</button>
 									</div>
 								</div>
 							</div>
@@ -69,17 +69,24 @@
 		console.log(e, 'masok');
 	});
 
+	function kirimPesan() {
+		var pesan = document.getElementById('pesan').value;
+		console.log('kirim ', pesan);
+		socket.emit('dataPesan', pesan);
+	}
+
 	var socket = io('http://localhost:2500', {
 		// secure: true,
 		// transports:['websocket', 'polling']
 	});
 
-	// console.log(socket);
-	// console.table(socket);
+	socket.on('dataPesan', pesan =>  {
+		$.playSound(urlSuara);
+		console.log('terima ', pesan);
+	})
 
 	socket.emit('dariServer', 'hai');
 	socket.on('dataServer', (dataServer) => {
-		$.playSound(urlSuara)
 		console.log('data hit ', dataServer);
 	});
 

@@ -20,6 +20,10 @@ io.on('connection', (socket) => {
 		io.emit('dataServer', online)
 	})
 
+	socket.on('dataPesan', params => {
+		io.emit('dataPesan', params)
+	})
+
 })
 
 http.listen(port, () => {
