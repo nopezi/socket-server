@@ -72,16 +72,16 @@
 	function kirimPesan() {
 		var pesan = document.getElementById('pesan').value;
 		console.log('kirim ', pesan);
-		socket.emit('dataPesan', pesan);
+		socket.emit('dataNotif', pesan);
 	}
 
-	var socket = io('http://localhost:2500', {
+	var socket = io('https://socket-realtime.herokuapp.com', {
 		// secure: true,
 		// transports:['websocket', 'polling']
 	});
 
 	socket.on('dataPesan', pesan =>  {
-		$.playSound(urlSuara);
+		// $.playSound(urlSuara);
 		console.log('terima ', pesan);
 	})
 

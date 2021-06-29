@@ -24,6 +24,10 @@ io.on('connection', (socket) => {
 		io.emit('dataPesan', params)
 	})
 
+	socket.on('dataNotif', params => {
+		io.emit('dataNotif', params)
+	})
+
 })
 
 http.listen(port, () => {
