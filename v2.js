@@ -28,6 +28,29 @@ io.on('connection', (socket) => {
 		io.emit('dataNotif', params)
 	})
 
+	socket.on('notifEmail', params => {
+
+		let transporter = nodemailer.createTransport({
+			host : 'mail.windigitalkhatulistiwa.com',
+			port: '465',
+			secure: true,
+			auth: {
+				user: 'info@windigitalkhatulistiwa.com',
+				pass: '8Q?by$#qy9'
+			}
+		})
+
+		let mailoptions = {
+			from: 'info@windigitalkhatulistiwa.com',
+			to: 'snopezi@gmail.com',
+			subject: params.judul,
+			text: params.isi
+		}
+
+		transporter.sendMail(mailoptions)
+
+	})
+
 })
 
 http.listen(port, () => {
