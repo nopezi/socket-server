@@ -74,7 +74,7 @@ io.on('connection', (socket) => {
 
 		let mailoptions = {
 			from: 'info@windigitalkhatulistiwa.com',
-			to: 'snopezi@gmail.com',
+			to: params.email,//'snopezi@gmail.com',
 			subject: params.judul,
 			text: params.isi
 		}
