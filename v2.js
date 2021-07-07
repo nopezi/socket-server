@@ -36,8 +36,10 @@ app.get('/email', (req, res, next) => {
 	transporter.sendMail(mailoptions, function (err, data) {
 		if (err) {
 			console.log('error ',err)
+			res.send('error '+ err)
 		} else{
 			console.log('berhasil')
+			res.send('berhasil')
 		}
 	})
 
