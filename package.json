@@ -2,10 +2,12 @@
   "name": "socket.io",
   "version": "1.0.0",
   "description": "",
-  "main": "v2.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node v2.js"
+    "backup": "nodemon server.js --inspect",
+    "gas": "nodemon server2.js --inspect",
+    "start": "nodemon v2.js --inspect"
   },
   "keywords": [],
   "author": "",
