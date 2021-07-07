@@ -83,15 +83,7 @@ io.on('connection', (socket) => {
 			text: params.isi
 		}
 
-		transporter.sendMail(mailoptions, function (err, data) {
-				if (err) {
-					var hasil = 'error gays '+ err
-					res.send('masok coy '+ hasil)
-				} else{
-					var hasil = 'berhasil gaes'
-					res.send('masok coy '+ hasil)
-				}
-		})
+		transporter.sendMail(mailoptions)
 
 	})
 
