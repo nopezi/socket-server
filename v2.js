@@ -3,6 +3,7 @@ const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 const port = process.env.PORT || 2500
+const nodemailer = require("nodemailer");
 
 let online = 0;
 var nama = 'kucing'
@@ -11,6 +12,35 @@ app.get('/', (req, res, next) => {
   ++online
   io.emit('dataServer', online)
   res.send('hai '+ online);
+})
+
+app.get('/email', (req, res, next) => {
+
+	let transporter = nodemailer.createTransport({
+		host : 'mail.windigitalkhatulistiwa.com',
+		port: '465',
+		secure: true,
+		auth: {
+			user: 'info@windigitalkhatulistiwa.com',
+			pass: '8Q?by$#qy9'
+		}
+	})
+
+	let mailoptions = {
+		from: 'info@windigitalkhatulistiwa.com',
+		to: 'snopezi@gmail.com',
+		subject: 'ini judul',
+		text: 'ini isi'
+	}
+
+	transporter.sendMail(mailoptions, function (err, data) {
+		if (err) {
+			console.log('error ',err)
+		} else{
+			console.log('berhasil')
+		}
+	})
+
 })
 
 io.on('connection', (socket) => {
@@ -29,7 +59,7 @@ io.on('connection', (socket) => {
 	})
 
 	socket.on('notifEmail', params => {
-
+		console.log('masok')
 		let transporter = nodemailer.createTransport({
 			host : 'mail.windigitalkhatulistiwa.com',
 			port: '465',
@@ -47,7 +77,13 @@ io.on('connection', (socket) => {
 			text: params.isi
 		}
 
-		transporter.sendMail(mailoptions)
+		transporter.sendMail(mailoptions, function (err, data) {
+			if (err) {
+				console.log('error ',err)
+			} else{
+				console.log('berhasil')
+			}
+		})
 
 	})
 
