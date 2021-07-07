@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "backup": "nodemon server.js --inspect",
-    "gas": "nodemon server2.js --inspect",
-    "start": "nodemon v2.js --inspect"
+    // "backup": "nodemon server.js --inspect",
+    // "gas": "nodemon server2.js --inspect",
+    // "start": "nodemon v2.js --inspect"
   },
   "keywords": [],
   "author": "",
