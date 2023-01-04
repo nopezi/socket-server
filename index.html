@@ -75,7 +75,11 @@
 		socket.emit('dataNotif', pesan);
 	}
 
-	var socket = io('https://socket-realtime.herokuapp.com', {
+	// var socket = io('https://socket-realtime.herokuapp.com', {
+	// 	// secure: true,
+	// 	// transports:['websocket', 'polling']
+	// });
+	var socket = io('http://localhost:2500', {
 		// secure: true,
 		// transports:['websocket', 'polling']
 	});
@@ -85,7 +89,7 @@
 		console.log('terima ', pesan);
 	})
 
-	socket.emit('dariServer', 'hai');
+	socket.emit('dariServer', 'hui hui');
 	socket.on('dataServer', (dataServer) => {
 		console.log('data hit ', dataServer);
 	});

@@ -53,6 +53,7 @@ io.on('connection', (socket) => {
 	})
 
 	socket.on('dataPesan', params => {
+		console.log('[masok dataPesan] ::: ', params)
 		io.emit('dataPesan', params)
 	})
 
